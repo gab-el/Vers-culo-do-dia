@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 0;
+    /* NOVO GRADIENTE: Sintonia total com o marrom/bronze do player */
+    background-image: linear-gradient(135deg, #1e1412, #3a2823, #d4bda2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header h1 {
+    font-family: 'Playfair Display', Georgia, serif; /* Aplica a nova fonte elegante */
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-style: italic; /* O itálico nessa fonte fica parecendo livro premium */
+    color: #fcfaf2; 
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    
+    /* Mágica para fixar no canto esquerdo superior da tela */
+    position: absolute;
+    top: 30px;      /* Distância do topo da tela */
+    left: 40px;     /* Alinhado na mesma linha esquerda do player */
+    margin: 0;
+}
+
+/* Ajuste para celulares: no celular não tem espaço na esquerda, então ele volta para o topo do cartão */
+@media (max-width: 1000px) {
+    .header h1 {
+        position: static;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+}
+
+.card-versiculo {
+    background-color: #fcfaf2;
+    width: 100%;
+    max-width: 550px; 
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* Sombra um pouco mais profunda */
+    text-align: center; 
+}
+
+#texto-versiculo {
+    font-size: 1.8rem;
+    color: #2b1d19; /* Marrom bem escuro para o texto do versículo */
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#texto-versiculo.fade-out {
+    opacity: 0;
+}
+
+.container-texto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.btn-copiar {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #543d36;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.btn-copiar:hover {
+    background-color: #f0e6dc;
+    transform: scale(1.1);
+}
+
+.btn-copiar svg {
+    width: 20px;
+    height: 20px;
+}
+
+#referencia-versiculo {
+    font-size: 1.2rem;
+    color: #7a6862; /* Tom de transição para a referência */
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#referencia-versiculo.fade-out {
+    opacity: 0;
+}
+
+#btn-novo-versiculo {
+    border: 1px solid #543d36; /* Borda combinando com a paleta */
+    color: #543d36;
+    background-color: transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px; 
+    transition: 0.3s; 
+    font-weight: 600;
+}
+
+#btn-novo-versiculo:hover {
+    background-color: #543d36; /* Ao passar o mouse, ele preenche com o marrom elegante */
+    color: #fcfaf2;
+}
+
+/* O restante do seu código (.footer e .player-spotify-lateral) pode continuar igual! */
+
+.footer {
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.8); 
+    font-size: 0.9rem;
+}
+
+/* Configuração para Computadores: O player flutua na esquerda */
+.player-spotify-lateral {
+    position: fixed;   
+    left: 40px; /* Aumentei um pouco o espaço da borda da tela */        
+    top: 50%;       
+    transform: translateY(-50%); 
+    width: 300px; /* Largura ideal para o player do Spotify mostrar os botões */      
+    height: 352px;     
+    z-index: 10;      
+}
+
+/* Configuração para Celulares: O player vai para baixo do cartão automaticamente */
+@media (max-width: 1000px) {
+    .player-spotify-lateral {
+        position: static; 
+        transform: none;
+        margin: 30px auto;
+        width: 100%;
+        max-width: 550px; /* Fica exatamente da largura do cartão */
+    }
+}
